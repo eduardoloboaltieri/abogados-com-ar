@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Abogados.com.ar ofrece asesoría jurídica clara, cercana y estratégica en Argentina." />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="abogados.com.ar | Asesoría jurídica en Argentina" />
+    <meta property="og:description" content="Acompañamiento legal cercano, estratégico y honesto para las decisiones que más importan." />
+    <meta property="og:type" content="website" />
+    <title>abogados.com.ar | Asesoría jurídica</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LegalService",
+        "name": "abogados.com.ar",
+        "description": "Asesoría jurídica en Argentina.",
+        "areaServed": "Argentina",
+        "url": "https://abogados.com.ar"
+      }
+    </script>
+    <style>
+      :root { font-family: Georgia, 'Times New Roman', serif; color: #19324a; background: #f4f1eb; }
+      * { box-sizing: border-box; }
+      body { margin: 0; }
+      main { min-height: 100vh; padding: 1.5rem; background: linear-gradient(135deg, #f4f1eb 0%, #dfe8e9 100%); }
+      .shell { width: min(1080px, 100%); margin: auto; }
+      header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0 4rem; }
+      .brand { font-size: 1.25rem; font-weight: bold; letter-spacing: .08em; }
+      .badge { padding: .5rem .75rem; border: 1px solid #b88746; color: #8a632d; font: .75rem Arial, sans-serif; letter-spacing: .08em; }
+      .hero { display: grid; grid-template-columns: 1.1fr .9fr; gap: 4rem; align-items: center; padding-bottom: 4rem; }
+      .eyebrow { color: #b88746; font: .75rem Arial, sans-serif; letter-spacing: .16em; }
+      h1 { max-width: 680px; margin: .8rem 0 1rem; font-size: clamp(2.8rem, 7vw, 5.5rem); line-height: .98; font-weight: normal; }
+      .intro { max-width: 560px; color: #4d6170; font: 1.08rem/1.7 Arial, sans-serif; }
+      .cta { display: inline-block; margin-top: 1.25rem; padding: 1rem 1.4rem; border: 0; color: #fff; background: #19324a; cursor: pointer; font: bold .85rem Arial, sans-serif; }
+      .cta:hover { background: #b88746; }
+      .panel { padding: 2rem; border-top: 5px solid #b88746; background: rgba(255, 255, 255, .9); box-shadow: 0 20px 60px rgba(25, 50, 74, .14); }
+      .panel h2 { margin-top: 0; font-size: 1.8rem; font-weight: normal; }
+      .panel p { color: #4d6170; font: .95rem/1.6 Arial, sans-serif; }
+      form { display: grid; gap: .9rem; }
+      label { display: grid; gap: .35rem; color: #19324a; font: .78rem Arial, sans-serif; font-weight: bold; }
+      input, select, textarea { width: 100%; padding: .75rem; border: 1px solid #c7d0d0; color: #19324a; background: #fff; font: .95rem Arial, sans-serif; }
+      textarea { min-height: 105px; resize: vertical; }
+      input:focus, select:focus, textarea:focus { outline: 2px solid #b88746; border-color: transparent; }
+      button[type='submit'] { padding: .85rem; border: 0; color: #fff; background: #b88746; cursor: pointer; font: bold .85rem Arial, sans-serif; }
+      button:disabled { cursor: wait; opacity: .6; }
+      #status { min-height: 1.3rem; margin: 0; font: .85rem/1.4 Arial, sans-serif; }
+      .success { color: #27704c !important; }
+      .error { color: #a3362d !important; }
+      footer { padding: 2rem 0; color: #60727d; font: .8rem Arial, sans-serif; }
+      @media (max-width: 760px) { header { padding-bottom: 3rem; } .hero { grid-template-columns: 1fr; gap: 2.5rem; } h1 { font-size: clamp(2.8rem, 14vw, 4.5rem); } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="shell">
+        <header><div class="brand">ABOGADOS.COM.AR</div><div class="badge">PRIMERA CONSULTA</div></header>
+        <div class="hero">
+          <section>
+            <div class="eyebrow">ASESORÍA JURÍDICA · ARGENTINA</div>
+            <h1>Defendemos tus intereses con claridad.</h1>
+            <p class="intro">Acompañamiento legal cercano, estratégico y honesto para las decisiones que más importan.</p>
+            <button class="cta" id="contactButton" type="button">Solicitar consulta</button>
+          </section>
+          <section class="panel" id="contactPanel">
+            <h2>Hablemos de tu caso</h2>
+            <p>Cuéntanos brevemente qué necesitas. Te responderemos lo antes posible.</p>
+            <form id="contactForm">
+              <label>Nombre *<input name="nombre" required autocomplete="name" /></label>
+              <label>Correo electrónico *<input name="email" type="email" required autocomplete="email" /></label>
+              <label>Teléfono<input name="telefono" type="tel" autocomplete="tel" /></label>
+              <label>Asunto *<select name="asunto" required><option value="">Selecciona una opción</option><option>Derecho civil</option><option>Derecho laboral</option><option>Derecho de familia</option><option>Otro asunto</option></select></label>
+              <label>Mensaje *<textarea name="mensaje" required placeholder="Describe tu situación..."></textarea></label>
+              <button type="submit">Enviar solicitud</button>
+              <p id="status" role="status" aria-live="polite"></p>
+            </form>
+          </section>
+        </div>
+        <footer>© 2026 abogados.com.ar · Atención confidencial</footer>
+      </div>
+    </main>
+    <script>
+      const contactButton = document.querySelector('#contactButton');
+      const contactPanel = document.querySelector('#contactPanel');
+      const contactForm = document.querySelector('#contactForm');
+      const status = document.querySelector('#status');
+      const submitButton = contactForm.querySelector('button[type="submit"]');
+
+      contactButton.addEventListener('click', () => {
+        contactPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        contactForm.querySelector('input').focus({ preventScroll: true });
+      });
+
+      contactForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        status.className = '';
+        status.textContent = 'Enviando solicitud...';
+        submitButton.disabled = true;
+
+        try {
+          const response = await fetch('/api/contacto', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(Object.fromEntries(new FormData(contactForm)))
+          });
+          const result = await response.json();
+          if (!response.ok) throw new Error(result.error || 'No se pudo enviar la solicitud.');
+          status.className = 'success';
+          status.textContent = result.message;
+          contactForm.reset();
+        } catch (error) {
+          status.className = 'error';
+          status.textContent = error.message;
+        } finally { submitButton.disabled = false; }
+      });
+    </script>
+  </body>
+</html>
